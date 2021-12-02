@@ -23,20 +23,38 @@ buttonPlay.addEventListener('click', function () {
   // dichiaro e inizializzo la riga e la colonna che compone i quadrati a 0
   let row = 0;
   let col = 0;
-
+  
+  const blackList = [];
   // se seleziono il livello easy allora
   if (level == 'easy') { 
     row = 10;
     col = 10;
+    for (let index = 0; index < 16; index++) {
+      let bombeRand = Math.floor(Math.random() * 100) + 1;
+      blackList.push(bombeRand);
+    }
+    console.log(blackList);
   // se seleziono il livello hard allora 
   } else if (level == 'hard') {
     row = 9;
     col = 9;
+    for (let index = 0; index < 16; index++) {
+      let bombeRand = Math.floor(Math.random() * 81) + 1;
+      blackList.push(bombeRand);
+    }
+    console.log(blackList);
+
   // se seleziono il livello crazy allora
   } else if (level == 'crazy') {
     row = 7;
     col = 7;
+    for (let index = 0; index < 16; index++) {
+      let bombeRand = Math.floor(Math.random() * 49) + 1;
+      blackList.push(bombeRand);
+    }
+    console.log(blackList);
   }
+  // console.log(blackList);
   // dichiaro la variabile per creare il numero di quadrati
   let numberSquare = row * col;
 
@@ -56,31 +74,29 @@ buttonPlay.addEventListener('click', function () {
     square.addEventListener('click', function () {
       this.classList.add('active');
     })
+
   }
   console.log(numberSquare);
   
-  for (let index = 0; index < 16; index++) {
-    if (level == 'easy') {
-      let bombeRand = Math.floor(Math.random() * 100) + 1;
-      blackList.push(bombeRand);  
+  // for (let index = 0; index < 16; index++) {
+  //   if (level == 'easy') {
+  //     let bombeRand = Math.floor(Math.random() * 100) + 1;
+  //     blackList.push(bombeRand);  
+      
+  //   } else if (level == 'hard') {
+  //     let bombeRand = Math.floor(Math.random() * 81) + 1;
+  //     blackList.push(bombeRand);
+      
+  //   } else if (level == 'crazy') {
+  //     let bombeRand = Math.floor(Math.random() * 49) + 1;
+  //     blackList.push(bombeRand);
+  //   }
+  // }
   
-    } else if (level == 'hard') {
-      let bombeRand = Math.floor(Math.random() * 81) + 1;
-      blackList.push(bombeRand);
-  
-    } else if (level == 'crazy') {
-      let bombeRand = Math.floor(Math.random() * 49) + 1;
-      blackList.push(bombeRand);
-    }
-  }
-  console.log(blackList);
-
-
 });
 
 // creo lista nera con numeri
 
-const blackList = [];
 
 // if (blacklist.includes(parseInt(square.innerText))) {
   
