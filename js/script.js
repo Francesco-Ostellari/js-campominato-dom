@@ -58,29 +58,29 @@ buttonPlay.addEventListener('click', function () {
     })
   }
   console.log(numberSquare);
+  
+  for (let index = 0; index < 16; index++) {
+    if (level == 'easy') {
+      let bombeRand = Math.floor(Math.random() * 100) + 1;
+      blackList.push(bombeRand);  
+  
+    } else if (level == 'hard') {
+      let bombeRand = Math.floor(Math.random() * 81) + 1;
+      blackList.push(bombeRand);
+  
+    } else if (level == 'crazy') {
+      let bombeRand = Math.floor(Math.random() * 49) + 1;
+      blackList.push(bombeRand);
+    }
+  }
+  console.log(blackList);
+
+
 });
 
 // creo lista nera con numeri
 
 const blackList = [];
-const level = document.getElementById('difficolta').value;
-console.log(level);
-
-for (let index = 0; index < 16; index++) {
-  if (level == 'easy') {
-    let bombeRand = Math.floor(Math.random() * 100) + 1;
-    blackList.push(bombeRand);  
-
-  } else if (level == 'hard') {
-    let bombeRand = Math.floor(Math.random() * 81) + 1;
-    blackList.push(bombeRand);
-
-  } else if (level == 'crazy') {
-    let bombeRand = Math.floor(Math.random() * 49) + 1;
-    blackList.push(bombeRand);
-  }
-}
-console.log(blackList);
 
 // if (blacklist.includes(parseInt(square.innerText))) {
   
