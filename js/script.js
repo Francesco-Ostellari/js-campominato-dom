@@ -62,10 +62,28 @@ buttonPlay.addEventListener('click', function () {
 
 // creo lista nera con numeri
 
-let blackList = [1, 30, 23, 9, 45];
+const blackList = [];
+const level = document.getElementById('difficolta').value;
+console.log(level);
 
-if (blacklist.includes(parseInt(square.innerText))) {
-  
+for (let index = 0; index < 16; index++) {
+  if (level == 'easy') {
+    let bombeRand = Math.floor(Math.random() * 100) + 1;
+    blackList.push(bombeRand);  
+
+  } else if (level == 'hard') {
+    let bombeRand = Math.floor(Math.random() * 81) + 1;
+    blackList.push(bombeRand);
+
+  } else if (level == 'crazy') {
+    let bombeRand = Math.floor(Math.random() * 49) + 1;
+    blackList.push(bombeRand);
+  }
 }
+console.log(blackList);
+
+// if (blacklist.includes(parseInt(square.innerText))) {
+  
+// }
 // quando clicco un numero della lista nera, il bg di quel numero e di tutti gli altri numeri della lista nera diventano rosso
 
