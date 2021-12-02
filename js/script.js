@@ -70,9 +70,21 @@ buttonPlay.addEventListener('click', function () {
     // inserisco i numeri all'interno dei quadrati
     square.append(index + 1);
 
+    if (blackList.includes(parseInt(square.innerText))) {
+      square.classList.add('black-list');
+    }
+
     // cambio lo sfondo al div quando lo clicco
     square.addEventListener('click', function () {
-      this.classList.add('active');
+      if (square.classList.contains('black-list')) {
+        let divBlackList = document.querySelectorAll('.black-list');
+        console.log(divBlackList);
+        for (let index = 0; index < divBlackList.length; index++) {
+          divBlackList[index].classList.add('red');
+        }
+      } else {
+        square.classList.add('active');
+      }
     })
 
   }
