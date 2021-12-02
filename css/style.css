@@ -1,0 +1,98 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* common */
+.flex {
+  display: flex;
+}
+
+body {
+ font-family: 'Roboto', sans-serif;
+}
+
+:root {
+  --square-size: 10;
+}
+/* /common */
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+header {
+  height: 80px;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+header .container-left, .container-left img {
+  height: 100%;
+}
+
+header .container-left h1 {
+ margin-left: 10px;
+}
+
+header .container-right {
+  height: 100%;
+  align-items: center;
+}
+
+header .container-right #difficolta {
+  width: 150px;
+  background-color: #E9E9ED;
+  border-radius: 5px;
+}
+
+header .container-right .livello {
+  margin-right: 10px;
+}
+
+header .container-right .btn {
+   width: 70px;
+   text-align: center;
+   font-weight: bold;
+   border-radius: 5px;
+}
+
+.main {
+  background-color: #7FFFD4;
+  padding: 50px;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.main .playfield {
+  flex-wrap: wrap;
+  width: 500px;
+  height: 500px;
+  margin: 60px auto;
+  border: 1px solid black;
+}
+.main .playfield .square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% / var(--square-size));
+  height: calc(100% / var(--square-size));
+  color: black;
+  cursor: pointer;
+  border: 2px solid black;
+}
+
+.active {
+    background-color: #44d0ff;
+}
+
+
+footer {
+  height: 80px; 
+  padding: 20px;
+}
