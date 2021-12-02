@@ -24,40 +24,34 @@ buttonPlay.addEventListener('click', function () {
   let row = 0;
   let col = 0;
   
-  const blackList = [];
   // se seleziono il livello easy allora
   if (level == 'easy') { 
     row = 10;
     col = 10;
-    for (let index = 0; index < 16; index++) {
-      let bombeRand = Math.floor(Math.random() * 100) + 1;
-      blackList.push(bombeRand);
-    }
+    blackList = randomNumber(1, 100);
     console.log(blackList);
   // se seleziono il livello hard allora 
   } else if (level == 'hard') {
     row = 9;
     col = 9;
-    for (let index = 0; index < 16; index++) {
-      let bombeRand = Math.floor(Math.random() * 81) + 1;
-      blackList.push(bombeRand);
-    }
+    blackList = randomNumber(1, 81);
     console.log(blackList);
 
   // se seleziono il livello crazy allora
   } else if (level == 'crazy') {
     row = 7;
     col = 7;
-    for (let index = 0; index < 16; index++) {
-      let bombeRand = Math.floor(Math.random() * 49) + 1;
-      blackList.push(bombeRand);
-    }
+    blackList = randomNumber(1, 49);
     console.log(blackList);
   }
   // console.log(blackList);
   // dichiaro la variabile per creare il numero di quadrati
   let numberSquare = row * col;
 
+  // conto i quadrati blu
+  let contatore = [];
+  // inizializzo il punteggio a 0
+  let punteggio = 0;
   // ciclo for per creare i div quadrati
   for (let index = 0; index < numberSquare; index++) {
     const square = document.createElement('div');
@@ -84,34 +78,31 @@ buttonPlay.addEventListener('click', function () {
         }
       } else {
         square.classList.add('active');
+        contatore.push(square);
+        console.log(contatore);
+        punteggio = contatore.length;
+        console.log('il punteggio è:'+' '+ punteggio);
+        document.getElementById("result").innerHTML = "il punteggio è:" + ' ' + punteggio;
       }
-    })
+    });
 
-  }
-  console.log(numberSquare);
-  
-  // for (let index = 0; index < 16; index++) {
-  //   if (level == 'easy') {
-  //     let bombeRand = Math.floor(Math.random() * 100) + 1;
-  //     blackList.push(bombeRand);  
-      
-  //   } else if (level == 'hard') {
-  //     let bombeRand = Math.floor(Math.random() * 81) + 1;
-  //     blackList.push(bombeRand);
-      
-  //   } else if (level == 'crazy') {
-  //     let bombeRand = Math.floor(Math.random() * 49) + 1;
-  //     blackList.push(bombeRand);
-  //   }
-  // }
-  
+  };
+  console.log(numberSquare);  
 });
 
-// creo lista nera con numeri
+function randomNumber(min, max) {
+  let blackList = [];
 
+  for (let index = 0; index < 16; index++) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
 
-// if (blacklist.includes(parseInt(square.innerText))) {
-  
-// }
-// quando clicco un numero della lista nera, il bg di quel numero e di tutti gli altri numeri della lista nera diventano rosso
-
+    let element = blackList[index];
+    element = Math.floor(Math.random() * (max - min + 1) + min);
+    while (blackList.includes(element)) {
+      element = Math.floor(Math.random() * (max - min + 1) + min);
+    }
+    blackList.push(element);
+  }
+  return blackList;
+}
