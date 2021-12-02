@@ -87,10 +87,13 @@ header .container-right .btn {
   border: 2px solid black;
 }
 
+.red {
+  background-color: red;
+}
+
 .active {
     background-color: #44d0ff;
 }
-
 
 footer {
   height: 80px; 
